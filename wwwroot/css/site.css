@@ -16,6 +16,42 @@ header {
     height: 300px;
     background-color: #6765e058;
     overflow: hidden;
+    position: relative;
+}
+
+header nav {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    height: 70px;
+    align-items: center;
+}
+
+nav h2 {
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    column-gap: 30px;
+    color: white;
+}
+
+nav ul button {
+    background-color: #6765e0;
+    padding: 8px 10px;
+    border: none;
+    color: white;
+    border-radius: 3px;
+}
+
+nav a {
+    color: white;
 }
 
 .couvercle {
