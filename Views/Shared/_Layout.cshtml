@@ -3,17 +3,19 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MOBILE_PHONE</title>
+    <title>@ViewData["Title"] - MOBILE PHONE</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MOBILE_PHONE.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        
+        <section class="couvercle">
+            <video src=""></video>
+        </section>        
     </header>
-        <main role="main">
-            @RenderBody()
-        </main>
+    <main role="main">
+        @RenderBody()
+    </main>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
