@@ -1,0 +1,69 @@
+header.auth {
+    width: 100%;
+}
+
+.auth nav {
+    width: inherit;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    color: #333;
+} 
+
+.auth ul {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.auth ul a {
+    color: #333;
+}
+
+.auth nav ul button {
+    background-color: #6765e0;
+    padding: 8px 10px;
+    border: none;
+    color: white;
+    border-radius: 3px;
+}
+
+.form-container {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+.form-container form {
+    width: 300px;
+}
+
+.form-container label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.form-container .form-element {
+    margin-bottom: 20px;
+}
+
+.form-container input {
+    height: 30px;
+    width: 100%;
+    outline: none;
+    padding-left: 7px;
+}
+
+.form-container button {
+    background-color: #6765e0;
+    padding: 8px 10px;
+    border: none;
+    color: white;
+    border-radius: 3px;
+}

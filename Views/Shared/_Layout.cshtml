@@ -5,31 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - MOBILE PHONE</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Authentication.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MOBILE_PHONE.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo-container">
-                <h2>LOGO</h2>
-            </div>
-            <ul>
-                <li>
-                    <a asp-action="Index">
-                        Accueil
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        <button>Se connecter</button>
-                    </a>
-                </li>
-            </ul>    
-        </nav>        
-        <section class="couvercle">
-            <video src="~/movies/Introducing iPhone 16 Pro - Apple.mp4" autoplay muted loop></video>
-        </section>        
-    </header>
     <main role="main">
         @RenderBody()
     </main>
