@@ -24,4 +24,9 @@ public class AuthenticationController : Controller {
         return View();
     }
 
+    [HttpGet]
+    public IActionResult Register(){
+        return View();
+    }
+
 }
