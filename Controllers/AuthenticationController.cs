@@ -19,4 +19,9 @@ public class AuthenticationController : Controller {
         return View();
     }
 
+    [HttpGet]
+    public IActionResult ForgotPassword(){
+        return View();
+    }
+
 }
