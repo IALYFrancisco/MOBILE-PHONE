@@ -46,6 +46,8 @@ header.auth {
 .form-container label {
     display: block;
     font-size: 14px;
+    font-weight: 600;
+    color: #333;
     margin-bottom: 5px;
 }
 
@@ -54,10 +56,29 @@ header.auth {
 }
 
 .form-container input {
-    height: 30px;
+    height: 35px;
     width: 100%;
     outline: none;
-    padding-left: 7px;
+    padding-left: 6px;
+}
+
+.form-container .button-container {
+    margin-top: 25px;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
+
+.form-container .button-container a {
+    display: flex;
+    align-items: end;
+    margin-bottom: -3px;
+    font-size: 14px;
+    color: #6765e0;
+}
+
+.form-container .button-container a:hover {
+    text-decoration: underline;
 }
 
 .form-container button {
@@ -66,4 +87,13 @@ header.auth {
     border: none;
     color: white;
     border-radius: 3px;
+}
+
+.form-container h3 {
+    color: #6765e0;
+    margin-bottom: 20px;
+}
+
+#register {
+    margin-top: 100px;
 }
