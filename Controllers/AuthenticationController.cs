@@ -1,6 +1,12 @@
 using System.Diagnostics;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 using MOBILE_PHONE.Models;
+using MOBILE_PHONE.Data; // ✅ ajout nécessaire
 
 namespace MOBILE_PHONE.Controllers {
 
@@ -37,8 +43,12 @@ namespace MOBILE_PHONE.Controllers {
         public async Task<IActionResult> Register([Bind("Name,Email,Password")] Users model){
             if(ModelState.IsValid){
                 var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
-                if(existingUser){
+                if(existingUser != null){
                     ViewData["Error"] = "Un utilisateur avec cet email existe déjà.";
+                    return View(model);
+                }
+                if (model.Password == null) { // Validation du mot de passe
+                   ViewData["Error"] = "Mot de passe requis.";
                     return View(model);
                 }
                 model.Password = HashPassword(model.Password);
