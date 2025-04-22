@@ -4,6 +4,7 @@ using MOBILE_PHONE.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MOBILE_PHONE.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250422110723_UsersDataModelCreation")]
+    partial class UsersDataModelCreation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,9 +37,6 @@ namespace MOBILE_PHONE.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Name")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Password")
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("RegisterDate")
