@@ -7,7 +7,7 @@ namespace MOBILE_PHONE.Data
         public ApplicationDbContext ( DbContextOptions<ApplicationDbContext> options )
             : base(options) {  }
 
-        public DbSet<Users> Users { get; set; }
+        public DbSet<MOBILE_PHONE.Models.Users> Users { get; set; } = default!;
         
     }
 }
