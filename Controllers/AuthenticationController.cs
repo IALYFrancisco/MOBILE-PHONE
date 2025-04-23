@@ -40,7 +40,7 @@ namespace MOBILE_PHONE.Controllers {
 
         // Action en charge du requête POST sur la route /Authentication/Register.
         [HttpPost]
-        public async Task<IActionResult> Register([Bind("Name,Email,Password, ConfirmPassword")] RegisterFormModel model, [Bind("Name,Email,Password")] Users _model){
+        public async Task<IActionResult> Register([Bind("Name,Email,Password,ConfirmPassword")] RegisterFormModel model, [Bind("Name,Email,Password")] Users _model){
             if(ModelState.IsValid){
                 var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
                 if(existingUser != null){
@@ -55,9 +55,10 @@ namespace MOBILE_PHONE.Controllers {
                     ViewData["Error"] = "Les mots de passe doivent être identiques.";
                     return View(model);
                 }
-                model.Password = HashPassword(model.Password);
+                _model.Password = HashPassword(_model.Password);
                 _context.Users.Add(_model);
                 await _context.SaveChangesAsync();
+                ViewData["Error"] = "Bien inscrit!";
                 return RedirectToAction("Login");
             }
             return View(model);

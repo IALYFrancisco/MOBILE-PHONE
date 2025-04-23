@@ -1,26 +1,35 @@
+@model MOBILE_PHONE.Models.RegisterFormModel;
+
 @{
     ViewData["Title"] = "Inscription";
     Layout = "_AuthenticationLayout";
+}
+
+@if (ViewData["Error"] != null)
+{
+        <div class="error-container">
+        <p>@ViewData["Error"]</p>
+        </div>
 }
 
 <main class="form-container" id="register">
     <form method="POST" asp-action="Register">
         <h3>Inscription</h3>
         <div class="form-element">
-            <label for="name">Votre nom :</label>
-            <input type="text" id="name" name="name" required placeholder="ex: John Doe"/>
+            <label for="Name">Votre nom :</label>
+            <input type="text" id="name" name="name" required placeholder="ex: John Doe" asp-for="Name"/>
         </div>
         <div class="form-element">
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" required placeholder="user@example.com"/>
+            <label for="Email">Email :</label>
+            <input type="email" id="email" name="email" required placeholder="user@example.com" asp-for="Email"/>
         </div>
         <div class="form-element">
-            <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password" required placeholder="votre mot de passe"/>
+            <label for="Password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required placeholder="votre mot de passe" asp-for="Password"/>
         </div>
         <div class="form-element">
-            <label for="password">Confirmer le mot de passe :</label>
-            <input type="password" id="password" name="password" required placeholder=".............."/>
+            <label for="ConfirmPassword">Confirmer le mot de passe :</label>
+            <input type="password" id="ConfirmPassword" name="ConfirmPassword" required placeholder=".............." asp-for="ConfirmPassword"/>
         </div>
         <div class="button-container">
             <button>s'inscrire</button>
