@@ -28,6 +28,12 @@ namespace MOBILE_PHONE.Controllers {
             return View();
         }
 
+        // Action en charge des requêtes POST sur la page de Connexion (Login)
+        [HttpPost]
+        public Task<IActionResult> Login ([Bind("Email, Password")] Users model) {
+            
+        }
+
         [HttpGet]
         public IActionResult ForgotPassword(){
             return View();
