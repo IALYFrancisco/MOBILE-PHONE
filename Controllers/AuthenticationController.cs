@@ -28,6 +28,12 @@ namespace MOBILE_PHONE.Controllers {
             return View();
         }
 
+        // Action en charge des requêtes POST sur la page de Connexion (Login)
+        [HttpPost]
+        public Task<IActionResult> Login ([Bind("Email, Password")] Users model) {
+            
+        }
+
         [HttpGet]
         public IActionResult ForgotPassword(){
             return View();
@@ -40,7 +46,7 @@ namespace MOBILE_PHONE.Controllers {
 
         // Action en charge du requête POST sur la route /Authentication/Register.
         [HttpPost]
-        public async Task<IActionResult> Register([Bind("Name,Email,Password")] Users model){
+        public async Task<IActionResult> Register([Bind("Name,Email,Password,ConfirmPassword")] RegisterFormModel model, [Bind("Name,Email,Password")] Users _model){
             if(ModelState.IsValid){
                 var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
                 if(existingUser != null){
@@ -51,9 +57,14 @@ namespace MOBILE_PHONE.Controllers {
                    ViewData["Error"] = "Mot de passe requis.";
                     return View(model);
                 }
-                model.Password = HashPassword(model.Password);
-                _context.Users.Add(model);
+                if(model.Password != model.ConfirmPassword) {
+                    ViewData["Error"] = "Les mots de passe doivent être identiques.";
+                    return View(model);
+                }
+                _model.Password = HashPassword(_model.Password);
+                _context.Users.Add(_model);
                 await _context.SaveChangesAsync();
+                ViewData["Error"] = "Bien inscrit!";
                 return RedirectToAction("Login");
             }
             return View(model);
