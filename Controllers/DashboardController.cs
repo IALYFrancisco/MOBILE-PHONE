@@ -19,4 +19,8 @@ public class DashboardController : Controller {
     public IActionResult Product(){
         return View();
     }
+
+    public IActionResult AddProduct(){
+        return View();
+    }
 }
