@@ -14,3 +14,48 @@ body {
 }
 
 
+.product-container {
+    width: 100%;
+    height: calc(100vh - 70px);
+    padding: 30px;
+}
+
+.product-container h2 {
+    
+    margin-bottom: 40px;
+}
+
+.table-container {
+    width: 100%;
+    height: calc(100vh - 188px);
+    overflow-y: scroll;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+  
+tr:nth-child(even) {
+    background-color: #6765e04a;
+}
+
+tr td img {
+    width: 60px;
+}
+
+tr td:nth-child(1) {
+    display: flex;
+    justify-content: center;
+}
+
+tr th:nth-child(1) {
+    text-align: center;
+}
