@@ -31,6 +31,7 @@ public class DashboardController : Controller {
     [HttpPost]
     public async Task<IActionResult> AddProduct([Bind("Mark,Model,Stock,UnitPrice,Image")] Products _model){
         if(ModelState.IsValid){
+            _model.RegisterDate = DateTime.Now;
             _context.Products.Add(_model);
             await _context.SaveChangesAsync();
             return RedirectToAction("Product");

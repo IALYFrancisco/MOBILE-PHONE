@@ -60,6 +60,7 @@ namespace MOBILE_PHONE.Controllers {
                     return View(model);
                 }
                 _model.Password = HashPassword(_model.Password);
+                _model.RegisterDate = DateTime.Now;
                 _context.Users.Add(_model);
                 await _context.SaveChangesAsync();
                 ViewData["Error"] = "Bien inscrit!";
