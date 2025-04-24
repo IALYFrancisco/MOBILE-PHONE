@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MOBILE_PHONE.Models;
+using MOBILE_PHONE.Data;
 
 namespace MOBILE_PHONE.Controllers;
 
@@ -8,8 +9,11 @@ public class DashboardController : Controller {
     
     private readonly ILogger<DashboardController> _logger;
 
-    public DashboardController(ILogger<DashboardController> logger){
+    private readonly ApplicationDbContext _context;
+
+    public DashboardController(ILogger<DashboardController> logger, ApplicationDbContext context){
         _logger = logger;
+        _context = context;
     }
 
     public IActionResult Index(){
@@ -22,5 +26,15 @@ public class DashboardController : Controller {
 
     public IActionResult AddProduct(){
         return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> AddProduct([Bind("Mark,Model,Stock,UnitPrice,Image")] Products _model){
+        if(ModelState.IsValid){
+            _context.Products.Add(_model);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Product");
+        }
+        return View(_model);
     }
 }

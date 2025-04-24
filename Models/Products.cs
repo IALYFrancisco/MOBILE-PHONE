@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MOBILE_PHONE.Models;
 
-public class ProductsModel {
+public class Products {
     public int Id { get; set; }
     public required string Mark { get; set; }
     public required string Model { get; set; }

@@ -8,7 +8,7 @@ namespace MOBILE_PHONE.Data
             : base(options) {  }
 
         public DbSet<MOBILE_PHONE.Models.Users> Users { get; set; } = default!;
-        public DbSet<MOBILE_PHONE.Models.ProductsModel> ProductsModel { get; set; } = default!;
+        public DbSet<MOBILE_PHONE.Models.Products> Products { get; set; } = default!;
         
     }
 }
