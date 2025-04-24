@@ -1,9 +1,24 @@
 @{
     Layout = "_Layout";
 }
-
-<h1>Layout du dashboard</h1>
-
-<main>
-    @RenderBody()
+<main class="container">
+    <aside>
+        <nav>
+            <ul>
+                <li>
+                    <a asp-action="Index">
+                        <img src="~/img/Home.png"/>
+                    </a>
+                </li>
+                <li>
+                    <a asp-action="Product">
+                        <img src="~/img/product.png" alt="product" title="product"/>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="render-container">
+        @RenderBody()
+    </main>
 </main>
