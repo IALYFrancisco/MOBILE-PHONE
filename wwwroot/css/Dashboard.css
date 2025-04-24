@@ -66,12 +66,12 @@ aside nav ul li a img {
     transform: scale(0.9);
 }
 
-header {
+.render-container header {
     width: 100%;
     padding-top: 15px;
 }
 
-header nav {
+.render-container header nav {
     width: 100%;
     display: flex;
     justify-content: end;
