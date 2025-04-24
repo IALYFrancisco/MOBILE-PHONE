@@ -1,3 +1,5 @@
+@model MOBILE_PHONE.Models.ProductsModel;
+
 @{
     ViewData["Title"] = "Ajout de produit";
     Layout = "_DashboardLayout";
@@ -5,26 +7,26 @@
 
 <section class="dashboard-form-container">
     <h2>Ajout de produit</h2>
-    <form>
+    <form asp-action="AddProduct" method="POST">
         <div class="element">
             <label for="Mark">Marque</label>
-            <input type="text" id="Mark" name="Mark" required/>
+            <input type="text" id="Mark" name="Mark" required asp-for="Mark"/>
         </div>
         <div class="element">
             <label for="Model">Modèle</label>
-            <input type="text" id="Model" name="Model" required/>
+            <input type="text" id="Model" name="Model" required asp-for="Model"/>
         </div>
         <div class="element">
             <label for="Stock">Stock</label>
-            <input type="number" id="Stock" name="Stock" required/>
+            <input type="number" id="Stock" name="Stock" required asp-for="Stock"/>
         </div>
         <div class="element">
-            <label for="Unit_Price">Prix unitaire (Ar)</label>
-            <input type="number" id="Unit_Price" name="Unit_Price" required/>
+            <label for="UnitPrice">Prix unitaire (Ar)</label>
+            <input type="number" id="UnitPrice" name="UnitPrice" required asp-for="UnitPrice"/>
         </div>
         <div class="element">
             <label for="Image">Illustration</label>
-            <input type="text" id="Image" name="Image" required/>
+            <input type="text" id="Image" name="Image" required asp-for="Image"/>
         </div>
         <div class="button-container">
             <button>Ajouter</button>
