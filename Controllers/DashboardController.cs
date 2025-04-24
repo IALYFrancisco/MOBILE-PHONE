@@ -4,7 +4,7 @@ using MOBILE_PHONE.Models;
 
 namespace MOBILE_PHONE.Controllers;
 
-public class HomeController : Controller {
+public class DashboardController : Controller {
     
     private readonly ILogger<DashboardController> _logger;
 
