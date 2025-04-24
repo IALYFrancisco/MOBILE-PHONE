@@ -44,11 +44,19 @@ td, th {
 }
   
 tr:nth-child(even) {
-    background-color: #6765e04a;
+    background-color: #c9c9eb4a;
+}
+
+tr td {
+    font-size: 14px;
+}
+
+tr td p {
+    margin: 9px 0;
 }
 
 tr td img {
-    width: 60px;
+    width: 70px;
 }
 
 tr td:nth-child(1) {
@@ -58,4 +66,25 @@ tr td:nth-child(1) {
 
 tr th:nth-child(1) {
     text-align: center;
+}
+
+tr td:nth-child(2),
+tr td:nth-child(3),
+tr td:nth-child(4),
+tr td:nth-child(5),
+tr th:nth-child(2),
+tr th:nth-child(3),
+tr th:nth-child(4),
+tr th:nth-child(5) {
+    padding-left: 20px;
+}
+
+p.actions {
+    display: flex;
+    justify-content: center;
+    column-gap: 15px;
+}
+
+p.actions img {
+    width: 25px;
 }
