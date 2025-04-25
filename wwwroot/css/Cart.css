@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Lato, sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+body {
+    width: 100%;
+}
+
+header.cart nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    height: 70px;
+    align-items: center;
+}
+
+header.cart nav ul {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    column-gap: 30px;
+}
+
+header.cart nav ul button {
+    background-color: #6765e0;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+}
+
+.cart nav ul li a {
+    color: black;
+}
+
+.cart nav ul li a img {
+    width: 30px;
+}
+
+.cart-product {
+    width: 800px;
+    margin: 150px auto;
+}
+
+.cart-product tr td img {
+    width: 50px;
+}
+
+.cart-product p.actions img {
+    width: 25px;
+}

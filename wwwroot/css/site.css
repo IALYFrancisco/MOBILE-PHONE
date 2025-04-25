@@ -58,6 +58,10 @@ header.home nav a {
     color: white;
 }
 
+.home nav ul li a img {
+    width: 30px;
+}
+
 .couvercle {
     width: 100%;
     height: 100%;

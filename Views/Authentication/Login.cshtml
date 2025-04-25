@@ -1,24 +1,25 @@
 @{
     ViewData["Title"] = "Connexion";
     Layout = "_AuthenticationLayout";
+    var successMessage = TempData["SuccessMessage"] as string;
 }
 
-@if(ViewData["Error"] != null){
-    <div>
-        <p> @ViewData["Error"] </p>
+@if(!string.IsNullOrEmpty(successMessage)){
+    <div class="alert alert-success">
+        <p>@successMessage</p>
     </div>
 }
 
 <main class="form-container">
-    <form method="POST" asp-action="Login">
+    <form>
         <h3>Connexion</h3>
         <div class="form-element">
             <label for="Email">Email :</label>
-            <input type="email" id="Email" name="Email" required placeholder="user@example.com" asp-for="Email"/>
+            <input type="email" id="Email" name="Email" required placeholder="user@example.com"/>
         </div>
         <div class="form-element">
             <label for="Password">Password :</label>
-            <input type="password" id="Password" name="Password" required placeholder="votre mot de passe" asp-for="Password"/>
+            <input type="password" id="Password" name="Password" required placeholder="votre mot de passe"/>
         </div>
         <div class="button-container">
             <button>connexion</button>

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using MOBILE_PHONE.Models;
-using MOBILE_PHONE.Data; // ✅ ajout nécessaire
+using MOBILE_PHONE.Data;
 
 namespace MOBILE_PHONE.Controllers {
 
@@ -23,15 +23,9 @@ namespace MOBILE_PHONE.Controllers {
             _context = context;
         }
 
-        [HttpGet] 
+        [HttpGet]
         public IActionResult Login(){
             return View();
-        }
-
-        // Action en charge des requêtes POST sur la page de Connexion (Login)
-        [HttpPost]
-        public Task<IActionResult> Login ([Bind("Email, Password")] Users model) {
-            
         }
 
         [HttpGet]
@@ -54,7 +48,9 @@ namespace MOBILE_PHONE.Controllers {
                     return View(model);
                 }
                 if (model.Password == null) { // Validation du mot de passe
-                   ViewData["Error"] = "Mot de passe requis.";
+                    return View(model);
+                }
+                if (_model.Password == null) { // Validation du mot de passe
                     return View(model);
                 }
                 if(model.Password != model.ConfirmPassword) {
@@ -62,9 +58,10 @@ namespace MOBILE_PHONE.Controllers {
                     return View(model);
                 }
                 _model.Password = HashPassword(_model.Password);
+                _model.RegisterDate = DateTime.Now;
                 _context.Users.Add(_model);
                 await _context.SaveChangesAsync();
-                ViewData["Error"] = "Bien inscrit!";
+                TempData["SuccessMessage"] = "Vous êtes bien inscrit(e) !";
                 return RedirectToAction("Login");
             }
             return View(model);

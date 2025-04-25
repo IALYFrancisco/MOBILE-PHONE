@@ -1,0 +1,31 @@
+@{
+    Layout = "_Layout";
+}
+<main class="container">
+    <aside>
+        <nav>
+            <ul>
+                <li>
+                    <a asp-action="Index">
+                        <img src="~/img/Home.png"/>
+                    </a>
+                </li>
+                <li>
+                    <a asp-action="Product">
+                        <img src="~/img/product.png" alt="product" title="product"/>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="render-container">
+        <header>
+            <nav>
+                <div class="profile-container">
+                    <img src="~/img/profile.png"/>
+                </div>
+            </nav>
+        </header>
+        @RenderBody()
+    </main>
+</main>

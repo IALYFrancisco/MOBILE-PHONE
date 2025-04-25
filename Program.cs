@@ -8,11 +8,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
     new MySqlServerVersion(new Version(8, 0, 25)))); // Remplace la version si nécessaire
 
-// // Ajouter Identity
-// builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-//     .AddEntityFrameworkStores<ApplicationDbContext>()
-//     .AddDefaultUI(); // Ajoute la UI par défaut pour les pages d'authentification
-
 builder.Services.AddDbContext<ApplicationDbContext>(options => 
     options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
