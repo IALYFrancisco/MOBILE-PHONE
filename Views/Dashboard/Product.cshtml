@@ -1,6 +1,13 @@
 @{
     ViewData["Title"] = "Product";
     Layout = "_DashboardLayout";
+    var successMessage = TempData["SuccessMessage"] as string;
+}
+
+@if(!string.IsNullOrEmpty(successMessage)){
+    <div class="alert alert-success">
+        <p>@successMessage</p>
+    </div>
 }
 
 <section class="product-container">

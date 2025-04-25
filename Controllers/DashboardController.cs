@@ -34,6 +34,7 @@ public class DashboardController : Controller {
             _model.RegisterDate = DateTime.Now;
             _context.Products.Add(_model);
             await _context.SaveChangesAsync();
+            TempData["SuccessMessage"] = "Produit ajouté avec succès.";
             return RedirectToAction("Product");
         }
         return View(_model);
