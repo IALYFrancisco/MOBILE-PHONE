@@ -114,3 +114,7 @@ header.auth {
 .alert-success {
     background-color: green;
 }
+
+.alert-error {
+    background-color: crimson;
+}

@@ -48,11 +48,9 @@ namespace MOBILE_PHONE.Controllers {
                     return View(model);
                 }
                 if (model.Password == null) { // Validation du mot de passe
-                   ViewData["Error"] = "Mot de passe requis.";
                     return View(model);
                 }
                 if (_model.Password == null) { // Validation du mot de passe
-                   ViewData["Error"] = "Mot de passe requis.";
                     return View(model);
                 }
                 if(model.Password != model.ConfirmPassword) {
