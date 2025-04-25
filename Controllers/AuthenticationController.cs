@@ -63,7 +63,7 @@ namespace MOBILE_PHONE.Controllers {
                 _model.RegisterDate = DateTime.Now;
                 _context.Users.Add(_model);
                 await _context.SaveChangesAsync();
-                ViewData["Error"] = "Bien inscrit!";
+                TempData["SuccessMessage"] = "Vous êtes bien inscrit(e) !";
                 return RedirectToAction("Login");
             }
             return View(model);
