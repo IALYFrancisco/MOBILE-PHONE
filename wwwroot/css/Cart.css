@@ -16,8 +16,6 @@ body {
 }
 
 header.cart nav {
-    position: absolute;
-    z-index: 1;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -47,4 +45,17 @@ header.cart nav ul button {
 
 .cart nav ul li a img {
     width: 30px;
+}
+
+.cart-product {
+    width: 800px;
+    margin: 150px auto;
+}
+
+.cart-product tr td img {
+    width: 50px;
+}
+
+.cart-product p.actions img {
+    width: 25px;
 }
