@@ -4,11 +4,6 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configurer la chaîne de connexion à MySQL
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
-    new MySqlServerVersion(new Version(8, 0, 25)))); // Remplace la version si nécessaire
-
 builder.Services.AddDbContext<ApplicationDbContext>(options => 
     options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
@@ -41,15 +36,13 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Utiliser les middlewares pour authentification et autorisation
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-// Utiliser les middlewares pour authentification et autorisation
-app.UseAuthentication();
-app.UseAuthorization();
 
 // Configurer les pages Razor
 app.MapRazorPages();
