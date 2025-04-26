@@ -38,7 +38,7 @@ namespace MOBILE_PHONE.Controllers {
 #pragma warning disable CS8604 // Possible null reference argument.
                 if (user != null && VerifyPassword(model.Password, user.Password)) {
                     await SignInUser(user.Email);
-                    return RedirectToAction("Products", "Dashboard");
+                    return RedirectToAction("Product", "Dashboard");
                 }
 #pragma warning restore CS8604 // Possible null reference argument.
                 ViewData["Error"] = "Email ou mot de passe incorrect.";
