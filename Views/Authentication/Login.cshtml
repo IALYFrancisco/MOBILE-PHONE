@@ -10,6 +10,12 @@
     </div>
 }
 
+@if(ViewData["Error"] != null){
+    <div class="alert alert-error">
+        <p>@ViewData["Error"]</p>
+    </div>
+}
+
 <main class="form-container">
     <form>
         <h3>Connexion</h3>
