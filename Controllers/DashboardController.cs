@@ -2,9 +2,11 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MOBILE_PHONE.Models;
 using MOBILE_PHONE.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MOBILE_PHONE.Controllers;
 
+[Authorize]
 public class DashboardController : Controller {
     
     private readonly ILogger<DashboardController> _logger;
