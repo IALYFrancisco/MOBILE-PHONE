@@ -8,11 +8,13 @@
                 <h2>LOGO</h2>
             </div>
             <ul>
-                <li>
-                    <a asp-action="Cart">
-                        <img src="~/img/cart.png"/>    
-                    </a>
-                </li>
+                @if(User.Identity?.IsAuthenticated ?? false){
+                    <li>
+                        <a asp-action="Cart">
+                            <img src="~/img/cart.png"/>    
+                        </a>
+                    </li>
+                }
                 <li>
                     <a asp-action="Index">
                         Accueil
