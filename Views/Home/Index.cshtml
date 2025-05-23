@@ -41,28 +41,27 @@
         </section>        
 </header>
 <main class="products">
-
-    <div class="product">
-        <div class="img-container">
-            <img src="~/img/product (1).jpg"/>
+    @foreach (var product in Model){
+        <div class="product">
+            <div class="img-container">
+                <img src="~/img/product (1).jpg"/>
+            </div>
+            <div class="product-info">
+                <p class="name">@product.Mark</p>    
+                <p class="price">
+                    Ar 450, 000
+                </p>
+                <p class="stars">
+                    <img src="~/img/star.png"/>
+                    <img src="~/img/star.png"/>
+                    <img src="~/img/star.png"/>
+                    <img src="~/img/star.png"/>
+                    <img src="~/img/star.png"/>
+                </p>
+            </div>
+            <div class="actions">
+                <button>ajouter au panier</button>    
+            </div>
         </div>
-        <div class="product-info">
-            <p class="name">
-                Redmi 12 poco
-            </p>    
-            <p class="price">
-                Ar 450, 000
-            </p>
-            <p class="stars">
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-            </p>
-        </div>
-        <div class="actions">
-            <button>ajouter au panier</button>    
-        </div>
-    </div>
+    }
 </main>
