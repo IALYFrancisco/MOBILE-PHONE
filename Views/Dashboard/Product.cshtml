@@ -1,3 +1,4 @@
+@model IEnumerable<MOBILE_PHONE.Models.Products>
 @{
     ViewData["Title"] = "Product";
     Layout = "_DashboardLayout";
@@ -27,47 +28,49 @@
                 <th style="width: 20%;">Dates d'ajout</th>
                 <th style="width: 10%;">Actions</th>
             </tr>
-            <tr>
-                <td class="product-img">
-                    <img src="~/img/product (1).jpg"/>
-                </td>
-                <td>
-                    <p class="mark">
-                        Marque: Redmi
-                    </p>    
-                    <p class="model">
-                        Modèle: 4X
-                    </p>
-                </td>
-                <td>
-                    <p class="price">
-                        Prix unitaire: 699,000 Ar
-                    </p>    
-                    <p class="stock">
-                        Stock: 25 / 50
-                    </p>
-                </td>
-                <td>
-                    <p class="benefits">
-                        284,628,779,927,492 Ar
-                    </p>    
-                </td>
-                <td>
-                    <p class="add-date">
-                        24 Avril 2025
-                    </p>    
-                </td>
-                <td>
-                    <p class="actions">
-                        <span class="edit">
-                            <img src="~/img/edit.png"/>
-                        </span>
-                        <span class="delete">
-                            <img src="~/img/delete.png"/>
-                        </span>
-                    </p>    
-                </td>
-            </tr>
+            @foreach(var product in Model){
+                <tr>
+                    <td class="product-img">
+                        <img src="~/img/product (1).jpg"/>
+                    </td>
+                    <td>
+                        <p class="mark">
+                            Marque: Redmi
+                        </p>    
+                        <p class="model">
+                            Modèle: 4X
+                        </p>
+                    </td>
+                    <td>
+                        <p class="price">
+                            Prix unitaire: 699,000 Ar
+                        </p>    
+                        <p class="stock">
+                            Stock: 25 / 50
+                        </p>
+                    </td>
+                    <td>
+                        <p class="benefits">
+                            284,628,779,927,492 Ar
+                        </p>    
+                    </td>
+                    <td>
+                        <p class="add-date">
+                            24 Avril 2025
+                        </p>    
+                    </td>
+                    <td>
+                        <p class="actions">
+                            <span class="edit">
+                                <img src="~/img/edit.png"/>
+                            </span>
+                            <span class="delete">
+                                <img src="~/img/delete.png"/>
+                            </span>
+                        </p>    
+                    </td>
+                </tr>
+            }
         </table>
     </section>
 </section>
