@@ -14,9 +14,9 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        return View(await _context.Products.ToListAsync());
     }
 
     [Authorize]
