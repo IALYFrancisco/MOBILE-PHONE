@@ -18,11 +18,19 @@
                         Accueil
                     </a>
                 </li>
-                <li>
-                    <a asp-controller="Authentication" asp-action="Login">
-                        <button>Se connecter</button>
-                    </a>
-                </li>
+                @if(User.Identity?.IsAuthenticated ?? false){
+                    <li>
+                        <form asp-action="Logout" asp-controller="Authentication" method="POST">
+                            <button>Se déconnecter</button>
+                        </form>
+                    </li>
+                }else{
+                    <li>
+                        <a asp-controller="Authentication" asp-action="Login">
+                            <button>Se connecter</button>
+                        </a>
+                    </li>
+                }
             </ul>    
         </nav>        
         <section class="couvercle">
