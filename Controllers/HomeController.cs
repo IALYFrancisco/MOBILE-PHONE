@@ -1,6 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
+using MOBILE_PHONE.Data;
 using MOBILE_PHONE.Models;
 
 namespace MOBILE_PHONE.Controllers;
@@ -8,9 +10,9 @@ namespace MOBILE_PHONE.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-    private readonly ApplicationContext _context;
+    private readonly ApplicationDbContext _context;
 
-    public HomeController(ILogger<HomeController> logger, ApplicationContext context)
+    public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
     {
         _logger = logger;
         _context = context;
