@@ -33,30 +33,18 @@
                         <img src="~/img/product (1).jpg"/>
                     </td>
                     <td>
-                        <p class="mark">
-                            Marque: @product.Mark
-                        </p>    
-                        <p class="model">
-                            Modèle: @product.Model
-                        </p>
+                        <p class="mark">Marque: @product.Mark</p>    
+                        <p class="model">Modèle: @product.Model</p>
                     </td>
                     <td>
-                        <p class="price">
-                            Prix unitaire: @product.UnitPrice Ar
-                        </p>    
-                        <p class="stock">
-                            Stock: @product.Stock / 50
-                        </p>
+                        <p class="price">Prix unitaire: @product.UnitPrice Ar</p>    
+                        <p class="stock">Stock: @product.Stock / 50</p>
                     </td>
                     <td>
-                        <p class="benefits">
-                            284,628,779,927,492 Ar
-                        </p>    
+                        <p class="benefits">284,628,779,927,492 Ar</p>    
                     </td>
                     <td>
-                        <p class="add-date">
-                            24 Avril 2025
-                        </p>    
+                        <p class="add-date">@product.RegisterDate.ToString("dd - MM - yyyy")</p>    
                     </td>
                     <td>
                         <p class="actions">
