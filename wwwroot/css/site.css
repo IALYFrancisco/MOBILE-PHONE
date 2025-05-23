@@ -119,10 +119,14 @@ video {
 
 .product .actions button {
     background-color: #6765e0;
-    padding: 5px 8px;
+    padding: 8px 12px;
     border: none;
     color: white;
     border-radius: 3px;
+}
+
+.product .actions button.disconnected {
+    background-color: #333;
 }
 
 .stars img {

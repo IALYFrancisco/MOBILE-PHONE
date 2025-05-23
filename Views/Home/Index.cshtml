@@ -47,10 +47,8 @@
                 <img src="~/img/product (1).jpg"/>
             </div>
             <div class="product-info">
-                <p class="name">@product.Mark</p>    
-                <p class="price">
-                    Ar 450, 000
-                </p>
+                <p class="name">@product.Mark @product.Model</p>    
+                <p class="price">@product.UnitPrice Ar</p>
                 <p class="stars">
                     <img src="~/img/star.png"/>
                     <img src="~/img/star.png"/>
@@ -60,7 +58,11 @@
                 </p>
             </div>
             <div class="actions">
-                <button>ajouter au panier</button>    
+                @if(User.Identity?.IsAuthenticated ?? false){
+                    <button>ajouter au panier</button>
+                }else{
+                    <button class="disconnected">ajouter au panier</button>
+                }
             </div>
         </div>
     }
