@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<MOBILE_PHONE.Models.Products>
+@{
     ViewData["Title"] = "Accueil";
     Layout = "_Layout";
 }
@@ -8,21 +9,31 @@
                 <h2>LOGO</h2>
             </div>
             <ul>
-                <li>
-                    <a asp-action="Cart">
-                        <img src="~/img/cart.png"/>    
-                    </a>
-                </li>
+                @if(User.Identity?.IsAuthenticated ?? false){
+                    <li>
+                        <a asp-action="Cart">
+                            <img src="~/img/cart.png"/>    
+                        </a>
+                    </li>
+                }
                 <li>
                     <a asp-action="Index">
                         Accueil
                     </a>
                 </li>
-                <li>
-                    <a asp-controller="Authentication" asp-action="Login">
-                        <button>Se connecter</button>
-                    </a>
-                </li>
+                @if(User.Identity?.IsAuthenticated ?? false){
+                    <li>
+                        <form asp-action="Logout" asp-controller="Authentication" method="POST">
+                            <button>Se déconnecter</button>
+                        </form>
+                    </li>
+                }else{
+                    <li>
+                        <a asp-controller="Authentication" asp-action="Login">
+                            <button>Se connecter</button>
+                        </a>
+                    </li>
+                }
             </ul>    
         </nav>        
         <section class="couvercle">
@@ -30,280 +41,29 @@
         </section>        
 </header>
 <main class="products">
-    <div class="product">
-        <div class="img-container">
-            <img src="~/img/product (1).jpg"/>
+    @foreach (var product in Model){
+        <div class="product">
+            <div class="img-container">
+                <img src="~/img/product (1).jpg"/>
+            </div>
+            <div class="product-info">
+                <p class="name">@product.Mark @product.Model</p>    
+                <p class="price">@product.UnitPrice Ar</p>
+                <p class="stars">
+                    <img src="~/img/star.png"/>
+                    <img src="~/img/star.png"/>
+                    <img src="~/img/star.png"/>
+                    <img src="~/img/star.png"/>
+                    <img src="~/img/star.png"/>
+                </p>
+            </div>
+            <div class="actions">
+                @if(User.Identity?.IsAuthenticated ?? false){
+                    <button>ajouter au panier</button>
+                }else{
+                    <button class="disconnected">ajouter au panier</button>
+                }
+            </div>
         </div>
-        <div class="product-info">
-            <p class="name">
-                Redmi 12 poco
-            </p>    
-            <p class="price">
-                Ar 450, 000
-            </p>
-            <p class="stars">
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-            </p>
-        </div>
-        <div class="actions">
-            <button>ajouter au panier</button>    
-        </div>
-    </div>
-    <div class="product">
-        <div class="img-container">
-            <img src="~/img/product (2).jpg"/>
-        </div>
-        <div class="product-info">
-            <p class="name">
-                Redmi 12 poco
-            </p>    
-            <p class="price">
-                Ar 450, 000
-            </p>
-            <p class="stars">
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-            </p>
-        </div>
-        <div class="actions">
-            <button>ajouter au panier</button>    
-        </div>
-    </div>
-    <div class="product">
-        <div class="img-container">
-            <img src="~/img/product (3).jpg"/>
-        </div>
-        <div class="product-info">
-            <p class="name">
-                Redmi 12 poco
-            </p>    
-            <p class="price">
-                Ar 450, 000
-            </p>
-            <p class="stars">
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-            </p>
-        </div>
-        <div class="actions">
-            <button>ajouter au panier</button>    
-        </div>
-    </div>
-    <div class="product">
-        <div class="img-container">
-            <img src="~/img/product (4).jpg"/>
-        </div>
-        <div class="product-info">
-            <p class="name">
-                Redmi 12 poco
-            </p>    
-            <p class="price">
-                Ar 450, 000
-            </p>
-            <p class="stars">
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-            </p>
-        </div>
-        <div class="actions">
-            <button>ajouter au panier</button>    
-        </div>
-    </div>
-    <div class="product">
-        <div class="img-container">
-            <img src="~/img/product (5).jpg"/>
-        </div>
-        <div class="product-info">
-            <p class="name">
-                Redmi 12 poco
-            </p>    
-            <p class="price">
-                Ar 450, 000
-            </p>
-            <p class="stars">
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-            </p>
-        </div>
-        <div class="actions">
-            <button>ajouter au panier</button>    
-        </div>
-    </div>
-    <div class="product">
-        <div class="img-container">
-            <img src="~/img/product (6).jpg"/>
-        </div>
-        <div class="product-info">
-            <p class="name">
-                Redmi 12 poco
-            </p>    
-            <p class="price">
-                Ar 450, 000
-            </p>
-            <p class="stars">
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-            </p>
-        </div>
-        <div class="actions">
-            <button>ajouter au panier</button>    
-        </div>
-    </div>
-    <div class="product">
-        <div class="img-container">
-            <img src="~/img/product (7).jpg"/>
-        </div>
-        <div class="product-info">
-            <p class="name">
-                Redmi 12 poco
-            </p>    
-            <p class="price">
-                Ar 450, 000
-            </p>
-            <p class="stars">
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-            </p>
-        </div>
-        <div class="actions">
-            <button>ajouter au panier</button>    
-        </div>
-    </div>
-    <div class="product">
-        <div class="img-container">
-            <img src="~/img/product (8).jpg"/>
-        </div>
-        <div class="product-info">
-            <p class="name">
-                Redmi 12 poco
-            </p>    
-            <p class="price">
-                Ar 450, 000
-            </p>
-            <p class="stars">
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-            </p>
-        </div>
-        <div class="actions">
-            <button>ajouter au panier</button>    
-        </div>
-    </div>
-    <div class="product">
-        <div class="img-container">
-            <img src="~/img/product (9).jpg"/>
-        </div>
-        <div class="product-info">
-            <p class="name">
-                Redmi 12 poco
-            </p>    
-            <p class="price">
-                Ar 450, 000
-            </p>
-            <p class="stars">
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-            </p>
-        </div>
-        <div class="actions">
-            <button>ajouter au panier</button>    
-        </div>
-    </div>
-    <div class="product">
-        <div class="img-container">
-            <img src="~/img/product (10).jpg"/>
-        </div>
-        <div class="product-info">
-            <p class="name">
-                Redmi 12 poco
-            </p>    
-            <p class="price">
-                Ar 450, 000
-            </p>
-            <p class="stars">
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-            </p>
-        </div>
-        <div class="actions">
-            <button>ajouter au panier</button>    
-        </div>
-    </div>
-    <div class="product">
-        <div class="img-container">
-            <img src="~/img/product (11).jpg"/>
-        </div>
-        <div class="product-info">
-            <p class="name">
-                Redmi 12 poco
-            </p>    
-            <p class="price">
-                Ar 450, 000
-            </p>
-            <p class="stars">
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-            </p>
-        </div>
-        <div class="actions">
-            <button>ajouter au panier</button>    
-        </div>
-    </div>
-    <div class="product">
-        <div class="img-container">
-            <img src="~/img/product (12).jpg"/>
-        </div>
-        <div class="product-info">
-            <p class="name">
-                Redmi 12 poco
-            </p>    
-            <p class="price">
-                Ar 450, 000
-            </p>
-            <p class="stars">
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-                <img src="~/img/star.png"/>
-            </p>
-        </div>
-        <div class="actions">
-            <button>ajouter au panier</button>    
-        </div>
-    </div>
+    }
 </main>

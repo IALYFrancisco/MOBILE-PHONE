@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MOBILE_PHONE.Models;
 using MOBILE_PHONE.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace MOBILE_PHONE.Controllers;
 
@@ -22,8 +23,8 @@ public class DashboardController : Controller {
         return View();
     }
 
-    public IActionResult Product(){
-        return View();
+    public async Task<IActionResult> Product(){
+        return View(await _context.Products.ToListAsync());
     }
 
     public IActionResult AddProduct(){
